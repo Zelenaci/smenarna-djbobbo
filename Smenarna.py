@@ -3,7 +3,7 @@
 from os.path import basename, splitext
 import tkinter as tk
 import random
-from tkinter import  CENTER, E, END, LEFT, TOP,  N, UNDERLINE, BOTTOM, HORIZONTAL, Label, Button, Scale,  StringVar, Frame, Entry , Listbox,Radiobutton,LabelFrame
+from tkinter import  CENTER, E, END, LEFT, TOP,  N, W, UNDERLINE, BOTTOM, HORIZONTAL, Label, Button, Scale,  StringVar, Frame, Entry , Listbox,Radiobutton,LabelFrame
 from tkinter.ttk import Labelframe
    
 
@@ -19,37 +19,45 @@ class Application(tk.Tk):
         self.title(self.name)
         self.bind("<Escape>", self.quit)
          
-        
+
         self.lblNazev = tk.Label(self, text="Směnárna")
         self.lblNazev.grid(row=0, column=1, columnspan=3)
 
         self.labelframe = tk.LabelFrame(self , text="Transakce")
-        self.labelframe.grid(row=1,column=1)
+        self.labelframe.grid(row=1,column=1, sticky = W)
 
-        self.radiobutton0 =tk.Radiobutton(self.labelframe, text="Nákup",value=1)
+        self.varMrsina = StringVar()
+       
+        self.radiobutton0 =tk.Radiobutton(self.labelframe,variable =self.varMrsina,  text="Nákup", value="Nákup")
         self.radiobutton0.grid()
 
-        self.radiobutton1 =tk.Radiobutton(self.labelframe, text="Prodej",value=2)
+        self.radiobutton1 =tk.Radiobutton(self.labelframe, variable =self.varMrsina, text="Prodej", value="Prodej")
         self.radiobutton1.grid()
 
+        self.varMrsina.set("Nákup")
+
         self.labelframe1 = tk.LabelFrame(self , text="Měna")
-        self.labelframe1.grid(row=2,column=1)
+        self.labelframe1.grid(row=2,column=1,sticky = W)
        
-        self.radiobutton2 =tk.Radiobutton(self.labelframe1, text="EUR", value=3)
+        self.varMrsina2 = StringVar()
+        
+        self.radiobutton2 =tk.Radiobutton(self.labelframe1,variable= self.varMrsina2, text="EUR", value="EUR")
         self.radiobutton2.grid()
 
-        self.radiobutton3 =tk.Radiobutton(self.labelframe1, text="GBP", value=4)
+        self.radiobutton3 =tk.Radiobutton(self.labelframe1,variable= self.varMrsina2, text="GBP", value="GBP")
         self.radiobutton3.grid()
    
-        self.radiobutton4 =tk.Radiobutton(self.labelframe1, text="USD", value=5)
+        self.radiobutton4 =tk.Radiobutton(self.labelframe1,variable= self.varMrsina2, text="USD", value="USD")
         self.radiobutton4.grid()
 
-        self.radiobutton5 =tk.Radiobutton(self.labelframe1, text="JPY", value=6)
+        self.radiobutton5 =tk.Radiobutton(self.labelframe1,variable= self.varMrsina2, text="JPY", value="JPY")
         self.radiobutton5.grid()
 
-        self.radiobutton6 =tk.Radiobutton(self.labelframe1, text="IDR", value=7)
+        self.radiobutton6 =tk.Radiobutton(self.labelframe1,variable= self.varMrsina2, text="IDR", value="IDR")
         self.radiobutton6.grid()
        
+        self.varMrsina2.set("EUR")
+        
         self.labelframe2 = tk.LabelFrame(self , text="Kurz")
         self.labelframe2.grid(row=3,column=1)
 
