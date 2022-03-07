@@ -53,10 +53,10 @@ class Application(tk.Tk):
         self.labelframe2 = tk.LabelFrame(self , text="Kurz")
         self.labelframe2.grid(row=3,column=1)
 
-        self.entry0 = tk.Entry (self.labelframe2)
+        self.entry0 = tk.Entry (self.labelframe2,state = "readonly" )
         self.entry0.grid()
 
-        self.entry1 = tk.Entry (self.labelframe2)
+        self.entry1 = tk.Entry (self.labelframe2,state = "readonly")
         self.entry1.grid()
 
 
@@ -69,6 +69,8 @@ class Application(tk.Tk):
         self.btn1 = tk.Button (self.labelframe3, text= "Výpočet")
         self.btn1.grid()
         
+        self.entry2 = tk.Entry (self.labelframe3,state = "readonly")
+        self.entry2.grid()
         
         
         #self.listbox = tk.Listbox(self)
